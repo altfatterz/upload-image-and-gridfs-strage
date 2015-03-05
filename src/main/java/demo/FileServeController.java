@@ -41,6 +41,7 @@ public class FileServeController {
                 result = new ResponseEntity<>(StreamUtils.copyToByteArray(inputStream), headers, HttpStatus.OK);
             } catch (IOException e) {
                 e.printStackTrace();
+                result = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } finally {
                 try {
                     inputStream.close();
